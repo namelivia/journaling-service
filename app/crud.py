@@ -1,4 +1,5 @@
 from sqlalchemy.orm import Session
+from uuid import UUID
 import datetime
 import logging
 
@@ -8,7 +9,7 @@ logger = logging.getLogger(__name__)
 
 
 # TODO: skip and limit
-def get_entries(db: Session):
+def get_entries(db: Session, key: UUID):
     return db.query(models.Entry).all()
 
 

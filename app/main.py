@@ -5,6 +5,7 @@ from fastapi import (
 from fastapi.middleware.cors import CORSMiddleware
 from http import HTTPStatus
 from app.dependencies import get_db
+from uuid import UUID
 from sqlalchemy.orm import Session
 from .database import engine, Base
 from . import crud, schemas
@@ -31,13 +32,14 @@ app.add_middleware(
 )
 
 
-@app.get("/all", response_model=List[schemas.Entry])
+@app.get("/{key}/all", response_model=List[schemas.Entry])
 def entries(
+    key: UUID,
     db: Session = Depends(get_db),
     skip: int = 0,
     limit: int = 10
 ):
-    entries = crud.get_entries(db)
+    entries = crud.get_entries(db, key)
     return entries
 
 

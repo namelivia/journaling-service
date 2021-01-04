@@ -51,7 +51,7 @@ class TestApp:
         key = uuid.uuid4()
         self._insert_test_entry(database_test_session, {"key": key})
         self._insert_test_entry(database_test_session, {"key": key})
-        response = client.get("/all")
+        response = client.get(f"/{str(key)}/all")
         assert response.status_code == 200
         assert response.json() == [{
             "id": 1,
@@ -64,3 +64,6 @@ class TestApp:
             "timestamp": "2013-04-09T00:00:00",
             "key": str(key),
         }]
+        response = client.get(f"/{str(uuid.uuid4())}/all")
+        assert response.status_code == 200
+        assert response.json() == []
