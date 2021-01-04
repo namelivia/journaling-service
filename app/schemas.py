@@ -1,10 +1,11 @@
 import datetime
-
+from uuid import UUID
 from pydantic import BaseModel, Field
 
 
 class EntryBase(BaseModel):
     message: str = Field(title="Journal message")
+    key: UUID = Field(title="Parent key for the journal entry")
 
 
 class EntryCreate(EntryBase):
