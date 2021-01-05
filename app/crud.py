@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 
 # TODO: skip and limit
 def get_entries(db: Session, key: UUID):
-    return db.query(models.Entry).all()
+    return db.query(models.Entry).filter_by(key=key).all()
 
 
 def create_entry(db: Session, entry: schemas.EntryCreate):
