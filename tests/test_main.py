@@ -11,10 +11,10 @@ from app.models import Entry
 from app.schemas import Entry as EntrySchema
 
 
+@freeze_time('2013-04-09')
 class TestApp:
 
     def _insert_test_entry(self, session, entry: dict = {}):
-        # TODO: Use freezegun
         data = {
             "message": 'Test message',
             "timestamp": datetime.datetime.now(),
@@ -25,7 +25,6 @@ class TestApp:
         session.commit()
         return db_entry
 
-    @freeze_time('2013-04-09')
     def test_create_entry(self, client):
         key = uuid.uuid4()
         response = client.post("/new", json={
@@ -46,7 +45,6 @@ class TestApp:
         })
         assert response.status_code == 422
 
-    @freeze_time('2013-04-09')
     def test_get_all_entries(self, client, database_test_session):
         key = uuid.uuid4()
         self._insert_test_entry(database_test_session, {"key": key})
