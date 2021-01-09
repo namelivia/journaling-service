@@ -14,9 +14,7 @@ class EntryCreate(EntryBase):
 
 class Entry(EntryBase):
     id: int
-    timestamp: datetime.datetime = Field(
-        title="Timestamp for the journal entry"
-    )
+    timestamp: datetime.datetime = Field(title="Timestamp for the journal entry")
 
     class Config:
         orm_mode = True
