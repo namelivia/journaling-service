@@ -4,7 +4,11 @@ updates:
   directory: "/"
   schedule:
     interval: weekly
+<<<<<<< Updated upstream
     interval: saturday
+=======
+    day: saturday
+>>>>>>> Stashed changes
   open-pull-requests-limit: 10
   ignore:
   - dependency-name: sqlalchemy
