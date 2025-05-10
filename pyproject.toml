@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "app"
-version = "1.2.2"
+version = "1.0.0"
 description = "Simple journaling service"
 authors = ["José Ignacio Amelivia Santiago <hello@namelivia.com>"]
 readme = "README.md"
@@ -37,6 +37,3 @@ pytest-freezegun = "*"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
-
-[tool.poetry.scripts]
-scheduler = "scripts.scheduler:main"
