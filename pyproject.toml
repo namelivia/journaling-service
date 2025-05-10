@@ -22,7 +22,7 @@ httptools = "*"
 pyjwt = { git = "https://github.com/jpadilla/pyjwt.git", rev = "master" }
 cryptography = "*"
 fastapi-utils = "*"
-httpx = "~=0.27.0"
+httpx = "~=0.28.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "*"
