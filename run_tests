@@ -1,2 +1,2 @@
 #!/bin/bash
-docker exec journaling-service pipenv run pytest
+docker exec journaling-service poetry run pytest

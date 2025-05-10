@@ -20,7 +20,7 @@ services:
       DATABASE_URL: "postgresql://user:password@journaling-service-database/journal"
       TEST_DATABASE_URL: "sqlite:///./test.db"
     command: [
-        "pipenv",
+        "poetry",
         "run",
         "uvicorn",
         "app.main:app",
