@@ -5,6 +5,7 @@ Revises: 90a6a2007adf
 Create Date: 2021-01-04 17:01:20.103501
 
 """
+
 from alembic import op
 from fastapi_utils.guid_type import GUID
 import sqlalchemy as sa
