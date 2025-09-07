@@ -1,3 +1,4 @@
+from sqlalchemy import desc
 from sqlalchemy.orm import Session
 from uuid import UUID
 import datetime
@@ -10,7 +11,12 @@ logger = logging.getLogger(__name__)
 
 # TODO: skip and limit
 def get_entries(db: Session, key: UUID):
-    return db.query(models.Entry).filter_by(key=key).all()
+    return (
+        db.query(models.Entry)
+        .filter_by(key=key)
+        .order_by(desc(models.Entry.timestamp))
+        .all()
+    )
 
 
 def create_entry(db: Session, entry: schemas.EntryCreate):
